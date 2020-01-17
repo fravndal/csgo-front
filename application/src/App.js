@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Frontpage from "./components/FrontPage.js";
+import About from "./components/About.js";
+import Weapons from "./components/Weapons.js";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Frontpage} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/about/:page" component={About} />
+        <Route exact path="/weapons/" component={Weapons} />
+        <Route exact path="/weapons/:page" component={Weapons} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
