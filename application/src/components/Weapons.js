@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Header from "./Header";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import Weapon from "./weapon/Weapon";
+import WeaponDetails from "./weapon/WeaponDetail";
 
 const Weapons = () => {
   const GET_WEAPONS = gql`
@@ -35,31 +37,9 @@ const Weapons = () => {
   return (
     <React.Fragment>
       <Header />
-      <div class="container">
-        <table class="table table-hover">
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Price</th>
-            <th>Kill Award</th>
-            <th>Damage</th>
-            <th>Magazine Size</th>
-          </tr>
-
-          {data &&
-            data.weapons &&
-            data.weapons.map((weapon, index) => (
-              <tr>
-                <td>{weapon.weaponName}</td>
-                <td>{weapon.weaponType}</td>
-                <td>{weapon.price}</td>
-                <td>{weapon.killAward}</td>
-                <td>{weapon.damage}</td>
-                <td>{weapon.magazineSize}</td>
-              </tr>
-            ))}
-        </table>
-      </div>
+      <Weapon {...data} />
+      {/* <Button onClick={toggleShow} /> */}
+      {/* <WeaponDetails {...data} expanded={expanded} /> */}
     </React.Fragment>
   );
 };
