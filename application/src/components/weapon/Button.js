@@ -1,25 +1,15 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-function Button() {
-  const [expanded, setExpanded] = useState(false);
+function Button(expanded, setExpanded) {
 
-  const updateState = boolean => {
-    if (boolean !== expanded) {
-      setExpanded(boolean);
-    }
-  };
+
 
   return (
     <div>
-      {expanded ? (
-        <button onClick={() => updateState(false)}>
-          <FaChevronUp />
+        <button onClick={() => setExpanded = true}>
+          {console.log(expanded)}
+          {expanded ? <FaChevronUp /> : <FaChevronDown />}
         </button>
-      ) : (
-        <button onClick={() => updateState(true)}>
-          <FaChevronDown />
-        </button>
-      )}
     </div>
   );
 }
