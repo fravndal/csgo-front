@@ -31,8 +31,8 @@ const Header = () => {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="row">
-          <div class="span-2">
+        <div className="row">
+          <div className="span-2">
             <img
               src={logo}
               alt="logo"
@@ -40,7 +40,7 @@ const Header = () => {
             />
           </div>
 
-          <div class="span-8">
+          <div className="span-8">
             <Nav>
               <ul>
                 <li>

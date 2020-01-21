@@ -3,8 +3,8 @@ import Button from "./Button";
 import WeaponDetail from "./WeaponDetail";
 const Weapon = data => {
   return (
-    <div class="container">
-      <table class="table table-hover">
+    <div className="container">
+      <table className="table table-hover">
         <tr>
           <th>Name</th>
           <th>Type</th>

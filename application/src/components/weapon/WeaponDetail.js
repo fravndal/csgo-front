@@ -1,37 +1,47 @@
-import React, { useState, Fragment } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
-const WeaponDetail = ({ data, expanded }) => {
+const WeaponDetail = ({ weapon, expanded }) => {
   return (
     <React.Fragment>
       {expanded ? (
-        <div class="container">
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Price</th>
-            <th>Kill Award</th>
-            <th>Damage</th>
-            <th>Magazine Size</th>
-            <th>X</th>
-          </tr>
+        <tr>
+          <td colSpan="8">
+            <table>
+              <thead>
+                <tr>
+                  <th>Bullets per trigger</th>
+                  <th>Armor Penetration</th>
+                  <th>Fire rate</th>
+                  <th>Penetration Power</th>
+                  <th>Ammo Reserve</th>
+                  <th>Bullet Range</th>
+                </tr>
+              </thead>
 
-          {data &&
-            data.weapons &&
-            data.weapons.map((weapon, index) => (
-              <tr>
-                <td>{weapon.weaponName}</td>
-                <td>{weapon.weaponType}</td>
-                <td>{weapon.price}</td>
-                <td>{weapon.killAward}</td>
-                <td>{weapon.damage}</td>
-                <td>{weapon.magazineSize}</td>
-              </tr>
-            ))}
-        </div>
+              <tbody>
+                <tr>
+                  <td>{weapon.bullets}</td>
+                  <td>{weapon.armorPenetration}</td>
+                  <td>{weapon.fireRate}</td>
+                  <td>{weapon.penetrationPower}</td>
+                  <td>{weapon.ammoReserve}</td>
+                  <td>{weapon.bulletRange}</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
       ) : null}
-      ;
     </React.Fragment>
   );
+};
+
+WeaponDetail.propTypes = {
+  weapon: PropTypes.shape({
+    bullets: PropTypes.number
+  }),
+  expanded: PropTypes.bool.isRequired
 };
 
 export default WeaponDetail;
