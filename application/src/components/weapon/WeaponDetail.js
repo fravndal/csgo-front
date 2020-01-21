@@ -39,9 +39,17 @@ const WeaponDetail = ({ weapon, expanded }) => {
 
 WeaponDetail.propTypes = {
   weapon: PropTypes.shape({
-    bullets: PropTypes.number
+    bullets: PropTypes.number,
+    armorPenetration: PropTypes.number,
+    fireRate: PropTypes.number,
+    penetrationPower: PropTypes.string,
+    ammoReserve: PropTypes.number,
+    bulletRange: PropTypes.number
   }),
   expanded: PropTypes.bool.isRequired
+};
+WeaponDetail.defaultProps = {
+  expanded: false
 };
 
 export default WeaponDetail;
