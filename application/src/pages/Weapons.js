@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import ReactDOM from "react-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_WEAPONS } from "./../queries/WeaponList";
 import Loading from "./../components/common/Loading";
@@ -6,14 +7,28 @@ import ErrorHandler from "./../components/common/ErrorHandler";
 // import WeaponsTable from "./../components/weapon/WeaponDetail";
 import WeaponDetail from "./../components/weapon/WeaponDetail";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { dedentBlockStringValue } from "graphql/language/blockString";
 
 const Weapons = () => {
   const [expandedId, setExpandedId] = useState(null);
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
   const { data, loading, error } = useQuery(GET_WEAPONS);
 
   if (loading) return <Loading textString="Loading..." />;
   if (error) return <ErrorHandler errorMessage={`${error}`} />;
+
+  const results = !searchTerm
+    ? data
+    : data &&
+      data.weapons &&
+      data.weapons.filter(weapon =>
+        weapon.weaponName.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+      );
+
+  console.log(results);
 
   return (
     <Fragment>
@@ -28,10 +43,17 @@ const Weapons = () => {
             type="text"
             class="form-control"
             placeholder="Weapon name"
-            aria-label="Weaponname"
+            value={searchTerm}
+            onChange={handleChange}
+            aria-label="Weapon name"
             aria-describedby="basic-addon1"
             autoFocus
           />
+          {/* <ul>
+            {results &&
+              results.weapons &&
+              results.weapons.map(weapon => <li>{weapon.weaponName}</li>)}
+          </ul> */}
         </div>
       </div>
       <div className="container">
@@ -51,9 +73,9 @@ const Weapons = () => {
           </thead>
 
           <tbody>
-            {data &&
-              data.weapons &&
-              data.weapons.map((weapon, index) => (
+            {results &&
+              results.weapons &&
+              results.weapons.map((weapon, index) => (
                 <React.Fragment key={`weapons-list-row-${index}`}>
                   <tr>
                     <td>

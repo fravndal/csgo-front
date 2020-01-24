@@ -3,7 +3,7 @@
 // import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 // const WeaponsTable = data => {
-//   console.log(data.data);
+//
 //   return (
 //     <Fragment>
 //       <table className="table table-hover">
