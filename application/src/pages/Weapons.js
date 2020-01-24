@@ -18,9 +18,27 @@ const Weapons = () => {
   return (
     <Fragment>
       <div className="container">
+        <div className="input-group mb-3" style={{ padding: "20px" }}>
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon1">
+              Search for weapon
+            </span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Weapon name"
+            aria-label="Weaponname"
+            aria-describedby="basic-addon1"
+            autoFocus
+          />
+        </div>
+      </div>
+      <div className="container">
         <table className="table table-hover">
           <thead>
             <tr>
+              <th></th>
               <th>Name</th>
               <th>Type</th>
               <th>Price</th>
@@ -38,6 +56,13 @@ const Weapons = () => {
               data.weapons.map((weapon, index) => (
                 <React.Fragment key={`weapons-list-row-${index}`}>
                   <tr>
+                    <td>
+                      <img
+                        src={`https://csgo-weapons.s3.eu-north-1.amazonaws.com/${weapon.weaponImageName}`}
+                        style={{ width: "50px", height: "50px" }}
+                        className="rounded float-left"
+                      />
+                    </td>
                     <td>{weapon.weaponName}</td>
                     <td>{weapon.weaponType}</td>
                     <td>{weapon.price}</td>
