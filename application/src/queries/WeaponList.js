@@ -20,6 +20,7 @@ export const GET_WEAPONS = gql`
       bulletRange
       holdToShoot
       tracers
+      weaponImageName
     }
   }
 `;

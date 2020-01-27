@@ -13,9 +13,14 @@ import { dedentBlockStringValue } from "graphql/language/blockString";
 const Weapons = () => {
   const [expandedId, setExpandedId] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const handleChange = event => {
+  const [filterTerm, setFilterTerm] = useState("weaponName");
+  const handleFilter = event => {
+    setFilterTerm(event.target.value);
+  };
+  const handleSearch = event => {
     setSearchTerm(event.target.value);
   };
+
   const { data, loading, error } = useQuery(GET_WEAPONS);
 
   if (loading)
@@ -50,30 +55,41 @@ const Weapons = () => {
     : data &&
       data.weapons &&
       data.weapons.filter(weapon =>
-        weapon.weaponName.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+        weapon[filterTerm]
+          .toLowerCase()
+          .includes(searchTerm.toLocaleLowerCase())
       );
 
   console.log(results);
 
   return (
     <Fragment>
-      <div className="container">
-        <div className="input-group mb-3" style={{ padding: "30px" }}>
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
+      <div className="container" style={{}}>
+        <div className="row">
+          <div className="col-sm-8">
+            <label className="input-group-text" id="basic-addon1">
               Search for weapon
-            </span>
+              <input
+                type="text"
+                className="form-control"
+                placeholder={filterTerm}
+                value={searchTerm}
+                onChange={handleSearch}
+                aria-label="Weapon name"
+                aria-describedby="basic-addon1"
+                autoFocus
+              />
+            </label>
           </div>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Weapon name"
-            value={searchTerm}
-            onChange={handleChange}
-            aria-label="Weapon name"
-            aria-describedby="basic-addon1"
-            autoFocus
-          />
+          <div className="col-sm-4">
+            <label className="input-group-text" id="basic-addon1">
+              filter
+              <select className="form-control" onChange={handleFilter}>
+                <option value="weaponName">Name</option>
+                <option value="weaponType">Type</option>
+              </select>
+            </label>
+          </div>
         </div>
       </div>
       <div className="container">
