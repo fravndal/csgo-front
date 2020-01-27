@@ -19,8 +19,9 @@ const Header = () => {
       display: block;
       color: white;
       text-align: center;
-      padding: 14px 16px;
+      padding: 28px 30px;
       text-decoration: none;
+      font-size: 23px;
     }
 
     li a:hover {
@@ -33,11 +34,13 @@ const Header = () => {
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
         <div className="row">
           <div className="span-2">
-            <img
-              src={logo}
-              alt="logo"
-              style={{ height: "100px", width: "250px" }}
-            />
+            <a href="/">
+              <img
+                src={logo}
+                alt="logo"
+                style={{ height: "100px", width: "250px" }}
+              />
+            </a>
           </div>
 
           <div className="span-8">

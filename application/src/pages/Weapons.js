@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_WEAPONS } from "./../queries/WeaponList";
 import Loading from "./../components/common/Loading";
+import Loader from "react-loader-spinner";
 import ErrorHandler from "./../components/common/ErrorHandler";
 // import WeaponsTable from "./../components/weapon/WeaponDetail";
 import WeaponDetail from "./../components/weapon/WeaponDetail";
@@ -17,8 +18,32 @@ const Weapons = () => {
   };
   const { data, loading, error } = useQuery(GET_WEAPONS);
 
-  if (loading) return <Loading textString="Loading..." />;
-  if (error) return <ErrorHandler errorMessage={`${error}`} />;
+  if (loading)
+    return (
+      <div className="container">
+        <div
+          style={{
+            textAlign: "center",
+            padding: "60px"
+          }}
+        >
+          <Loader
+            type="ThreeDots"
+            color="#00BFFF"
+            height={200}
+            width={200}
+            timeout={3000}
+            style={{ marginLeft: "auto", marginRight: "auto" }}
+          />
+        </div>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container">
+        <ErrorHandler errorMessage={`${error}`} />
+      </div>
+    );
 
   const results = !searchTerm
     ? data
