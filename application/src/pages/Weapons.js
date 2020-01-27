@@ -46,7 +46,7 @@ const Weapons = () => {
     );
 
   const results = !searchTerm
-    ? data
+    ? data && data.weapons
     : data &&
       data.weapons &&
       data.weapons.filter(weapon =>
@@ -58,7 +58,7 @@ const Weapons = () => {
   return (
     <Fragment>
       <div className="container">
-        <div className="input-group mb-3" style={{ padding: "20px" }}>
+        <div className="input-group mb-3" style={{ padding: "30px" }}>
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Search for weapon
@@ -74,11 +74,6 @@ const Weapons = () => {
             aria-describedby="basic-addon1"
             autoFocus
           />
-          {/* <ul>
-            {results &&
-              results.weapons &&
-              results.weapons.map(weapon => <li>{weapon.weaponName}</li>)}
-          </ul> */}
         </div>
       </div>
       <div className="container">
@@ -99,8 +94,7 @@ const Weapons = () => {
 
           <tbody>
             {results &&
-              results.weapons &&
-              results.weapons.map((weapon, index) => (
+              results.map((weapon, index) => (
                 <React.Fragment key={`weapons-list-row-${index}`}>
                   <tr>
                     <td>
