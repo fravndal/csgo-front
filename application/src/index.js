@@ -36,6 +36,7 @@ ReactDOM.render(
           <Route exact path="/about/:page" component={About} />
           <Route exact path="/weapons/" component={Weapons} />
           <Route exact path="/weapons/:page" component={Weapons} />
+
         </Switch>
       </Router>
     </MainLayout>
