@@ -10,7 +10,7 @@ const Weapons = () => {
   const [expandedId, setExpandedId] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterTerm, setFilterTerm] = useState("weaponName");
-
+  const [weaponTypeFilter, setWeaponTypeFilter] = useState("");
 
   const handleSearch = event => {
     setSearchTerm(event.target.value);
@@ -18,12 +18,9 @@ const Weapons = () => {
 
   const { data, loading, error } = useQuery(GET_WEAPONS);
 
-
-  let mapWeaponTypes = data &&
-    data.weapons &&
-    data.weapons.map(weapon => weapon.weaponType);
+  let mapWeaponTypes =
+    data && data.weapons && data.weapons.map(weapon => weapon.weaponType);
   const weaponTypes = [...new Set(mapWeaponTypes)];
-
 
   if (loading)
     return (
@@ -51,30 +48,40 @@ const Weapons = () => {
         <ErrorHandler errorMessage={`${error}`} />
       </div>
     );
+
   const results = !searchTerm
     ? data && data.weapons
     : data &&
-    data.weapons &&
-    data.weapons.filter(weapon =>
-      weapon.weaponName
-        .toLowerCase()
-        .includes(searchTerm.toLocaleLowerCase())
-    );
+      data.weapons &&
+      data.weapons.filter(weapon =>
+        weapon.weaponName.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+      );
 
+  const resultsWithWeaponTypeFilter =
+    weaponTypeFilter !== ""
+      ? data &&
+        data.weapons &&
+        data.weapons.filter(
+          weapon =>
+            weapon.weaponType.includes(weaponTypeFilter) &&
+            weapon.weaponName
+              .toLowerCase()
+              .includes(searchTerm.toLocaleLowerCase())
+        )
+      : null;
 
-
+  const check =
+    resultsWithWeaponTypeFilter != null ? resultsWithWeaponTypeFilter : results;
 
   return (
-
     <Fragment>
       <div className="bg-dark" style={{ backgroundColor: "grey" }}>
         <div className="container" style={{ backgroundColor: "white" }}>
           <div className="row">
-
             <div className="col-sm-6">
               <label className="input-group-text" id="basic-addon1">
                 Search for weapon
-              <input
+                <input
                   type="text"
                   className="form-control"
                   placeholder="Name"
@@ -89,26 +96,37 @@ const Weapons = () => {
             <div className="col-sm-3">
               <label className="input-group-text" id="basic-addon1">
                 filter
-              <select className="form-control" onChange={(e) => setFilterTerm(e.target.value)}>
+                <select
+                  className="form-control"
+                  onChange={e => setFilterTerm(e.target.value)}
+                >
                   <option value="weaponName">Name</option>
                   <option value="weaponType">Type</option>
                 </select>
               </label>
             </div>
 
-            {filterTerm === 'weaponType' && <div id="type-filter" className="col-sm-3">
-              <label className="input-group-text" id="basic-addon1">
-                Type filter
-              <select className="form-control" onChange={() => null}>
-                  <option value="">Select type..</option>
-                  {weaponTypes.map((weaponTypeName, i) =>
-                    <option key={`weaponTypeOption-${i}`} value={weaponTypeName}>{weaponTypeName}</option>
-                  )}
-
-                </select>
-              </label>
-            </div>}
-
+            {filterTerm === "weaponType" && (
+              <div id="type-filter" className="col-sm-3">
+                <label className="input-group-text" id="basic-addon1">
+                  Type filter
+                  <select
+                    className="form-control"
+                    onChange={e => setWeaponTypeFilter(e.target.value)}
+                  >
+                    <option value="">Select type..</option>
+                    {weaponTypes.map((weaponTypeName, i) => (
+                      <option
+                        key={`weaponTypeOption-${i}`}
+                        value={weaponTypeName}
+                      >
+                        {weaponTypeName}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+            )}
           </div>
 
           <table className="table table-hover">
@@ -127,8 +145,8 @@ const Weapons = () => {
             </thead>
 
             <tbody>
-              {results &&
-                results.map((weapon, index) => (
+              {check &&
+                check.map((weapon, index) => (
                   <React.Fragment key={`weapons-list-row-${index}`}>
                     <tr>
                       <td>
@@ -165,8 +183,8 @@ const Weapons = () => {
                           {expandedId === index ? (
                             <FaChevronUp />
                           ) : (
-                              <FaChevronDown />
-                            )}
+                            <FaChevronDown />
+                          )}
                         </button>
                       </td>
                     </tr>
