@@ -40,15 +40,15 @@ const WeaponData = ({ weapons }) => {
   };
 
   return (
-    <div className="bg-dark" style={{ backgroundColor: "grey" }}>
-      <div className="container" style={{ backgroundColor: "white" }}>
+    <div className="outer-frame">
+      <div className="table-frame container">
         <div className="row">
           <div className="col-sm-6">
-            <label className="input-group-text" id="basic-addon1">
+            <label className="search-field input-group-text" id="basic-addon1">
               Search for weapon
               <input
                 type="text"
-                className="form-control"
+                className="search-input form-control"
                 placeholder="Name"
                 value={searchFilter}
                 onChange={handleSearch}
@@ -59,10 +59,10 @@ const WeaponData = ({ weapons }) => {
             </label>
           </div>
           <div className="col-sm-3">
-            <label className="input-group-text" id="basic-addon1">
+            <label className="filter-field input-group-text" id="basic-addon1">
               filter
               <select
-                className="form-control"
+                className="filter-select form-control"
                 onChange={e => {
                   setWeaponAttribute(e.target.value);
                 }}
@@ -75,10 +75,13 @@ const WeaponData = ({ weapons }) => {
 
           {weaponAttribute === "weaponType" && (
             <div id="type-filter" className="col-sm-3">
-              <label className="input-group-text" id="basic-addon1">
+              <label
+                className="filter-type-field input-group-text"
+                id="basic-addon1"
+              >
                 Type filter
                 <select
-                  className="form-control"
+                  className="filter-type-select form-control"
                   onChange={e => setWeaponTypeFilter(e.target.value)}
                 >
                   <option value="">Select type..</option>
@@ -119,8 +122,7 @@ const WeaponData = ({ weapons }) => {
                     <img
                       src={`https://csgo-weapons.s3.eu-north-1.amazonaws.com/${weapon.weaponImageName}`}
                       alt={weapon.weaponImageName}
-                      style={{ width: "50px", height: "50px" }}
-                      className="rounded float-left"
+                      className="weapon-image-thumbnail rounded float-left"
                     />
                   </td>
                   <td>{weapon.weaponName}</td>
