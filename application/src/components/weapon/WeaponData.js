@@ -9,18 +9,18 @@ const WeaponData = ({ weapons }) => {
   const [weaponAttribute, setWeaponAttribute] = useState("weaponName");
   const [weaponTypeFilter, setWeaponTypeFilter] = useState("");
 
+  let mapWeaponTypes = weapons.map(x => x.weaponType);
+
+  const weaponTypes = [...new Set(mapWeaponTypes)];
+
   useEffect(() => {
     let filter = weapons;
-    console.log("search: " + searchFilter);
-    console.log("type: " + weaponTypeFilter);
-    console.log("attribute: " + weaponAttribute);
 
-    if (!searchFilter) {
+    if (searchFilter !== "") {
       filter = filter.filter(x =>
         x.weaponName.toLowerCase().includes(searchFilter.toLocaleLowerCase())
       );
     }
-
     if (weaponTypeFilter !== "") {
       filter = filter.filter(
         x =>
@@ -28,20 +28,16 @@ const WeaponData = ({ weapons }) => {
           x.weaponName.toLowerCase().includes(searchFilter.toLocaleLowerCase())
       );
     }
-
     if (weaponAttribute === "weaponName") {
       setWeaponTypeFilter("");
     }
+
     setFilterData(filter);
   }, [searchFilter, weaponAttribute, weaponTypeFilter, weapons]);
 
   const handleSearch = event => {
     setSearchFilter(event.target.value);
   };
-
-  let mapWeaponTypes = weapons.map(x => x.weaponType);
-
-  const weaponTypes = [...new Set(mapWeaponTypes)];
 
   return (
     <div className="bg-dark" style={{ backgroundColor: "grey" }}>
