@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import WeaponDetail from "./WeaponDetail";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-const WeaponData = ({ weapons }) => {
+const WeaponsData = ({ weapons }) => {
   const [expandedId, setExpandedId] = useState(null);
   const [filterData, setFilterData] = useState(weapons);
   const [searchFilter, setSearchFilter] = useState("");
@@ -42,7 +43,8 @@ const WeaponData = ({ weapons }) => {
   return (
     <div className="outer-frame">
       <div className="table-frame container">
-        <div className="row">
+        <div className="row search-bar">
+          {/* search */}
           <div className="col-sm-6">
             <label className="search-field input-group-text" id="basic-addon1">
               Search for weapon
@@ -58,6 +60,7 @@ const WeaponData = ({ weapons }) => {
               />
             </label>
           </div>
+          {/* filter */}
           <div className="col-sm-3">
             <label className="filter-field input-group-text" id="basic-addon1">
               filter
@@ -73,6 +76,7 @@ const WeaponData = ({ weapons }) => {
             </label>
           </div>
 
+          {/* type filter */}
           {weaponAttribute === "weaponType" && (
             <div id="type-filter" className="col-sm-3">
               <label
@@ -110,6 +114,7 @@ const WeaponData = ({ weapons }) => {
               <th>Damage</th>
               <th>Magazine Size</th>
               <th>DPS</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
@@ -155,6 +160,10 @@ const WeaponData = ({ weapons }) => {
                       )}
                     </button>
                   </td>
+
+                  <td className="weapon-link">
+                    <Link to={`/weapons/${weapon.id}`}>Go to weapon</Link>
+                  </td>
                 </tr>
 
                 {
@@ -172,4 +181,4 @@ const WeaponData = ({ weapons }) => {
   );
 };
 
-export default WeaponData;
+export default WeaponsData;

@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { GET_WEAPONS } from "./../queries/WeaponList";
 import Loader from "react-loader-spinner";
 import ErrorHandler from "./../components/common/ErrorHandler";
-import WeaponData from "./../components/weapon/WeaponData";
+import WeaponsData from "../components/weapons/WeaponsData";
 
 const Weapons = () => {
   const { data, loading, error } = useQuery(GET_WEAPONS);
@@ -32,7 +32,7 @@ const Weapons = () => {
 
   return (
     <Fragment>
-      <WeaponData weapons={data.weapons} />
+      <WeaponsData weapons={data.weapons} />
     </Fragment>
   );
 };

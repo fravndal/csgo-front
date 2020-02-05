@@ -15,6 +15,7 @@ import MainLayout from "./components/MainLayout.js";
 import Frontpage from "./pages/FrontPage.js";
 import About from "./pages/About.js";
 import Weapons from "./pages/Weapons.js";
+import Weapon from "./pages/Weapon.js";
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -31,12 +32,10 @@ ReactDOM.render(
     <MainLayout>
       <Router>
         <Switch>
-          <Route exact path="/" component={Frontpage} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/about/:page" component={About} />
-          <Route exact path="/weapons/" component={Weapons} />
-          <Route exact path="/weapons/:page" component={Weapons} />
-
+          <Route path="/about" component={About} />
+          <Route path="/weapons/:id" component={Weapon} />
+          <Route path="/weapons/" component={Weapons} />
+          <Route path="/" component={Frontpage} />
         </Switch>
       </Router>
     </MainLayout>

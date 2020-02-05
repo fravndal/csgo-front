@@ -19,13 +19,14 @@ code {
 
 .logo {
   height: 70px;
-  width: 180px;
+  width: 300px;
 }
 
 .header-ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: 0 0 0 0;
+
+  padding: 0 0 0 50px;
   overflow: hidden;
 }
 
@@ -38,7 +39,9 @@ code {
   color: white;
   text-align: center;
   padding: 28px 30px;
-  font-size: 17px;
+  font-size: 26px;
+  font-family: Calibri;
+  font-weight: 500;
 }
 
 .outer-frame {
@@ -50,9 +53,8 @@ code {
   border-radius: 15px;
 }
 
-th,
-td {
-  color: white;
+.search-bar {
+  padding: 15px 0 15px 0;
 }
 
 .search-field {
@@ -83,6 +85,15 @@ td {
 .filter-type-select {
   background-color: black !important;
   color: white !important;
+}
+
+th,
+td {
+  color: white;
+}
+
+.weapon-link a {
+  color: white;
 }
 
 .loader-frame {

@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../img/logo.png";
+import logo from "../img/csgo-logo-white.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -16,13 +17,13 @@ const Header = () => {
               <div className="span-8">
                 <ul className="header-ul">
                   <li>
-                    <a href="/">Home</a>
+                    <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <a href="/weapons">Weapons</a>
+                    <Link to="/weapons">Weapons</Link>
                   </li>
                   <li>
-                    <a href="/about">About</a>
+                    <Link to="/about">About</Link>
                   </li>
                 </ul>
               </div>

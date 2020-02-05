@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 export const GET_WEAPONS = gql`
   {
     weapons {
+      id
       weaponName
       weaponType
       price
