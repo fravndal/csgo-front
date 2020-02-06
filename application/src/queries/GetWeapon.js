@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export const GET_WEAPON = gql`
-  query weapon($id: Int!) {
-    weapon(id: $id) {
+  query weapon($slug: String!) {
+    weapon(slug: $slug) {
       id
       weaponName
       weaponType
@@ -22,6 +22,7 @@ export const GET_WEAPON = gql`
       holdToShoot
       tracers
       weaponImageName
+      slug
     }
   }
 `;

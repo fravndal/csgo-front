@@ -4,11 +4,10 @@ import { GET_WEAPON } from "../queries/GetWeapon";
 import Loader from "react-loader-spinner";
 import ErrorHandler from "./../components/common/ErrorHandler";
 import WeaponData from "../components/weaponDetails/WeaponData";
-import PropTypes from "prop-types";
 
 const Weapon = props => {
   const { data, loading, error } = useQuery(GET_WEAPON, {
-    variables: { id: props.match.params.id }
+    variables: { slug: props.match.params.slug }
   });
 
   if (loading)
@@ -32,7 +31,6 @@ const Weapon = props => {
         <ErrorHandler errorMessage={`${error}`} />
       </div>
     );
-  console.log(data);
 
   return (
     <Fragment>

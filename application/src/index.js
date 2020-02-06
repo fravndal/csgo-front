@@ -34,7 +34,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/about" component={About} />
           <Route
-            path="/weapons/:id"
+            path="/weapons/:slug"
             component={props => <Weapon {...props} />}
           />
           <Route path="/weapons/" component={Weapons} />

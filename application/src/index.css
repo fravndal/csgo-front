@@ -45,11 +45,11 @@ code {
 }
 
 .outer-frame {
-  background-color: #343a40;
+  background-color: #0c0d0e;
 }
 
 .table-frame {
-  background-color: rgb(88, 50, 50);
+  background-color: rgb(92, 57, 57);
   border-radius: 15px;
 }
 
@@ -96,9 +96,8 @@ td {
   color: white;
 }
 
-.weapon-link :hover {
+.weapon-link:hover {
   color: white;
-  text-decoration: none;
 }
 
 .loader-frame {
@@ -122,6 +121,11 @@ td {
 }
 
 .weapon-image-standard {
-  width: 150px;
-  height: 150px;
+  width: 350px;
+  height: 250px;
+}
+
+/* Footer */
+#sticky-footer {
+  flex-shrink: none;
 }

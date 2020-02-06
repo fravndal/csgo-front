@@ -22,6 +22,7 @@ export const GET_WEAPONS = gql`
       holdToShoot
       tracers
       weaponImageName
+      slug
     }
   }
 `;

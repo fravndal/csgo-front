@@ -165,7 +165,7 @@ const WeaponsData = ({ weapons }) => {
                     <Link
                       className="weapon-link"
                       to={{
-                        pathname: `/weapons/${weapon.id}`
+                        pathname: `/weapons/${weapon.slug}`
                       }}
                     >
                       Go to weapon

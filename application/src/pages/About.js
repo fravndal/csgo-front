@@ -2,7 +2,6 @@ import React from "react";
 
 const About = props => {
   let page = props.match.params.page;
-  console.log(page);
   return (
     <React.Fragment>
       <div className="container">
