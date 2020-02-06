@@ -10,9 +10,9 @@ const Header = () => {
           <nav className="navbar navbar-expand-sm">
             <div className="row">
               <div className="span-2">
-                <a href="/">
+                <Link to="/">
                   <img src={logo} alt="logo" className="logo" />
-                </a>
+                </Link>
               </div>
               <div className="span-8">
                 <ul className="header-ul">

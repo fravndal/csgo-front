@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_WEAPONS } from "./../queries/WeaponList";
+import { GET_WEAPONS } from "../queries/GetWeapons";
 import Loader from "react-loader-spinner";
 import ErrorHandler from "./../components/common/ErrorHandler";
 import WeaponsData from "../components/weapons/WeaponsData";
@@ -30,9 +30,11 @@ const Weapons = () => {
       </div>
     );
 
+  console.log(data);
+
   return (
     <Fragment>
-      <WeaponsData weapons={data.weapons} />
+      <WeaponsData weapons={data.allWeapons} />
     </Fragment>
   );
 };

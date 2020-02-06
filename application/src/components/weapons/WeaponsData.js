@@ -161,8 +161,15 @@ const WeaponsData = ({ weapons }) => {
                     </button>
                   </td>
 
-                  <td className="weapon-link">
-                    <Link to={`/weapons/${weapon.id}`}>Go to weapon</Link>
+                  <td>
+                    <Link
+                      className="weapon-link"
+                      to={{
+                        pathname: `/weapons/${weapon.id}`
+                      }}
+                    >
+                      Go to weapon
+                    </Link>
                   </td>
                 </tr>
 

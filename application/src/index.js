@@ -29,16 +29,19 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <MainLayout>
-      <Router>
+    <Router>
+      <MainLayout>
         <Switch>
           <Route path="/about" component={About} />
-          <Route path="/weapons/:id" component={Weapon} />
+          <Route
+            path="/weapons/:id"
+            component={props => <Weapon {...props} />}
+          />
           <Route path="/weapons/" component={Weapons} />
           <Route path="/" component={Frontpage} />
         </Switch>
-      </Router>
-    </MainLayout>
+      </MainLayout>
+    </Router>
   </ApolloProvider>,
   document.getElementById("root")
 );
