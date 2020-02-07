@@ -30,8 +30,6 @@ const Weapons = () => {
       </div>
     );
 
-  console.log(data);
-
   return (
     <Fragment>
       <WeaponsData weapons={data.allWeapons} />

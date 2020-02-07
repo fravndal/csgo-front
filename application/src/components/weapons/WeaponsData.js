@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import WeaponDetail from "./WeaponDetail";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import Pagination from "../common/Pagination";
+
+import Test from "../Test";
 
 const WeaponsData = ({ weapons }) => {
   const [expandedId, setExpandedId] = useState(null);
@@ -9,6 +12,8 @@ const WeaponsData = ({ weapons }) => {
   const [searchFilter, setSearchFilter] = useState("");
   const [weaponAttribute, setWeaponAttribute] = useState("weaponName");
   const [weaponTypeFilter, setWeaponTypeFilter] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostPerPage] = useState(10);
 
   let mapWeaponTypes = weapons.map(x => x.weaponType);
 
@@ -40,8 +45,15 @@ const WeaponsData = ({ weapons }) => {
     setSearchFilter(event.target.value);
   };
 
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filterData.slice(indexOfFirstPost, indexOfLastPost);
+
+  // https://www.youtube.com/watch?v=IYCa1F-OWmk
+
   return (
     <div className="outer-frame">
+      <Test filterData={weapons} />
       <div className="table-frame container">
         <div className="row search-bar">
           {/* search */}
@@ -120,7 +132,7 @@ const WeaponsData = ({ weapons }) => {
           </thead>
 
           <tbody>
-            {filterData.map((weapon, index) => (
+            {currentPosts.map((weapon, index) => (
               <React.Fragment key={`weapons-list-row-${index}`}>
                 <tr>
                   <td>
@@ -184,6 +196,7 @@ const WeaponsData = ({ weapons }) => {
           </tbody>
         </table>
       </div>
+      <Pagination postsPerPage={postsPerPage} totalPosts={filterData.lenght} />
     </div>
   );
 };
