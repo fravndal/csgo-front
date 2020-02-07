@@ -121,6 +121,10 @@ td {
 }
 
 /* Single weapon page */
+.backspace-frame {
+  padding: 30px 0 20px 0;
+}
+
 .backspace {
   color: white;
   font-weight: bold;
@@ -140,8 +144,19 @@ td {
   border-radius: 10px;
 }
 
+.weapon-main-details {
+}
+
+.weapon-main-details div {
+  padding: 5px 20px 5px 20px;
+}
+
 .weapon-name-row {
-  padding: 15px 100px 5px 20px !important;
+  padding: 15px 20px 20px 20px !important;
+}
+
+.weapon-main-details div span {
+  color: white !important;
 }
 
 .weapon-name {
