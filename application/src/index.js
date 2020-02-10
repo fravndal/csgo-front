@@ -38,6 +38,7 @@ ReactDOM.render(
             component={props => <Weapon {...props} />}
           />
           <Route path="/weapons/" component={Weapons} />
+
           <Route path="/" component={Frontpage} />
         </Switch>
       </MainLayout>

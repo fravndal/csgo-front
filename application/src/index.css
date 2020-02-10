@@ -46,6 +46,8 @@ code {
 
 .outer-frame {
   background-color: #0c0d0e;
+  padding-top: 20px;
+  height: 1065px;
 }
 
 .table-frame {
@@ -118,6 +120,19 @@ td {
 .weapon-frame {
   background-color: rgb(88, 50, 50);
   border-radius: 15px;
+}
+
+.pagination-frame {
+  background-color: #0c0d0e;
+}
+
+.pagination-component {
+  margin-left: 45%;
+  padding-bottom: 1px;
+}
+
+.active-pagination {
+  background-color: rgb(211, 193, 193) !important;
 }
 
 /* Single weapon page */
