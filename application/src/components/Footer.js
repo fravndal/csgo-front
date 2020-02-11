@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <React.Fragment>
       <footer id="sticky-footer" className="py-4 bg-dark text-white-50">
-        <div className="container text-center">
+        <div className="footer-text container text-center">
           <small>Copyright &copy; Counter-Strike Global Offensive Stats</small>
         </div>
       </footer>

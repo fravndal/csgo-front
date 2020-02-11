@@ -8,10 +8,10 @@ const WeaponData = ({ weapon }) => {
       <div className="weapon-frame container">
         <div className="row">
           <div className="backspace-frame col-3">
-            <Link to="/weapons">
+            <Link to="/weapons/">
               <FaChevronLeft color="white" />
 
-              <span className="backspace">Go back</span>
+              <span className="backspace">Back</span>
             </Link>
           </div>
         </div>

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import WeaponDetail from "./WeaponDetail";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 import Pagination from "../common/Pagination";
 
 const WeaponsData = ({ weapons }) => {
-  const [expandedId, setExpandedId] = useState(null);
   const [filterData, setFilterData] = useState(weapons);
   const [searchFilter, setSearchFilter] = useState("");
   const [weaponAttribute, setWeaponAttribute] = useState("weaponName");
@@ -143,7 +142,6 @@ const WeaponsData = ({ weapons }) => {
                 <th>Magazine Size</th>
                 <th>DPS</th>
                 <th></th>
-                <th></th>
               </tr>
             </thead>
 
@@ -171,23 +169,6 @@ const WeaponsData = ({ weapons }) => {
                         weapon.bullets
                       ).toFixed(2)}
                     </td>
-                    <td>
-                      <button
-                        onClick={() =>
-                          setExpandedId(
-                            expandedId === null || expandedId !== index
-                              ? index
-                              : null
-                          )
-                        }
-                      >
-                        {expandedId === index ? (
-                          <FaChevronUp />
-                        ) : (
-                          <FaChevronDown />
-                        )}
-                      </button>
-                    </td>
 
                     <td>
                       <Link
@@ -196,17 +177,11 @@ const WeaponsData = ({ weapons }) => {
                           pathname: `/weapons/${weapon.slug}`
                         }}
                       >
-                        Go to weapon
+                        Select
+                        <FaChevronRight />
                       </Link>
                     </td>
                   </tr>
-
-                  {
-                    <WeaponDetail
-                      weapon={weapon}
-                      expanded={expandedId === index}
-                    />
-                  }
                 </React.Fragment>
               ))}
             </tbody>

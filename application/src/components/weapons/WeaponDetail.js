@@ -6,27 +6,35 @@ const WeaponDetail = ({ weapon, expanded }) => {
     <React.Fragment>
       {expanded ? (
         <tr>
-          <td colSpan="8">
+          <td colSpan="10">
             <table>
               <thead>
                 <tr>
+                  <th></th>
                   <th>Bullets per trigger</th>
                   <th>Armor Penetration</th>
                   <th>Fire rate</th>
                   <th>Penetration Power</th>
                   <th>Ammo Reserve</th>
                   <th>Bullet Range</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
 
               <tbody>
                 <tr>
+                  <td></td>
                   <td>{weapon.bullets}</td>
                   <td>{weapon.armorPenetration}</td>
                   <td>{weapon.fireRate}</td>
                   <td>{weapon.penetrationPower}</td>
                   <td>{weapon.ammoReserve}</td>
                   <td>{weapon.bulletRange}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>

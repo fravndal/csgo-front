@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../img/csgo-logo-white.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const themeStorage = localStorage.getItem("theme");
+  const [theme, setTheme] = useState(themeStorage);
+
+  const test = () => {
+    if (theme === "light") {
+      localStorage.setItem("theme", "dark");
+      window.location.reload();
+    } else {
+      localStorage.setItem("theme", "light");
+      window.location.reload();
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="header-frame container-fluid text-white-50">
@@ -27,13 +40,16 @@ const Header = () => {
                   </li>
                 </ul>
               </div>
-              <div className="dark-theme-button-frame span-2">
-                {/* <button
-                  className="dark-theme-button"
-                  onChange={() => !setTheme}
-                >
-                  dark
-                </button> */}
+              <div className="theme-button-frame span-2">
+                {theme === "dark" ? (
+                  <button className="dark-theme-button" onClick={() => test()}>
+                    light mode
+                  </button>
+                ) : (
+                  <button className="light-theme-button" onClick={() => test()}>
+                    dark mode
+                  </button>
+                )}
               </div>
             </div>
           </nav>

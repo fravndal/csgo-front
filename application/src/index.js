@@ -17,6 +17,14 @@ import About from "./pages/About.js";
 import Weapons from "./pages/Weapons.js";
 import Weapon from "./pages/Weapon.js";
 
+// Set theme
+const selectedTheme = localStorage.getItem("theme");
+if (selectedTheme === "dark") {
+  require("./dist/dark.css");
+} else {
+  require("./dist/light.css");
+}
+
 const cache = new InMemoryCache();
 const link = new HttpLink({
   uri: "https://localhost:5001/graphql"
