@@ -1,3 +1,3 @@
-## Counter-Strike Global Offensive Helper
+## Counter-Strike Global Offensive Frontend
 
-This application is created in react and python
+This application is created in react

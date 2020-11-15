@@ -1,0 +1,191 @@
+.header-frame {
+  background-color: #bed7f1;
+}
+
+.logo {
+  height: 70px;
+  width: 300px;
+}
+
+.header-ul {
+  list-style-type: none;
+  margin: 0 0 0 0;
+
+  padding: 0 0 0 50px;
+  overflow: hidden;
+}
+
+.header-ul li {
+  float: left;
+}
+
+.header-ul li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 28px 30px;
+  font-size: 26px;
+  font-family: Calibri;
+  font-weight: 500;
+}
+
+.light-theme-button {
+  font-family: Calibri;
+  background-color: #949494; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 26px;
+  border-radius: 10px;
+  margin: 15px 0 0 50px;
+}
+
+.outer-frame {
+  background-color: #bed7f1;
+  padding-top: 20px;
+  height: 1058px;
+}
+
+.table-frame {
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+}
+
+.search-bar {
+  padding: 15px 0 15px 0;
+}
+
+.search-field {
+  background-color: rgb(116, 105, 105) !important;
+  color: black !important;
+}
+
+.search-input {
+  background-color: white !important;
+  color: black !important;
+}
+
+.filter-field {
+  background-color: rgb(116, 105, 105) !important;
+  color: black !important;
+}
+
+.filter-select {
+  background-color: white !important;
+  color: black !important;
+}
+
+.filter-type-field {
+  background-color: rgb(116, 105, 105) !important;
+  color: black !important;
+}
+
+.filter-type-select {
+  background-color: white !important;
+  color: black !important;
+}
+
+th,
+td {
+  color: black;
+}
+
+.weapon-link {
+  color: black;
+}
+
+.weapon-link:hover {
+  color: black;
+}
+
+.loader-frame {
+  text-align: center;
+  padding: 60px;
+}
+
+.loader {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.weapon-image-thumbnail {
+  width: 50px;
+  height: 50px;
+}
+
+.weapon-frame {
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+}
+
+.pagination-frame {
+  background-color: #bed7f1;
+}
+
+.pagination-component {
+  margin-left: 45%;
+  padding-bottom: 1px;
+}
+
+.active-pagination {
+  background-color: rgb(211, 193, 193) !important;
+}
+
+/* Single weapon page */
+.backspace-frame {
+  padding: 30px 0 20px 0;
+}
+
+.backspace {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.weapon-image-frame {
+  background-color: black;
+  padding: 0 !important;
+  margin: 15px !important;
+}
+
+.weapon-image-standard {
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.weapon-main-details {
+}
+
+.weapon-main-details div {
+  padding: 5px 20px 5px 20px;
+}
+
+.weapon-name-row {
+  padding: 15px 20px 20px 20px !important;
+}
+
+.weapon-main-details div span {
+  color: black !important;
+}
+
+.weapon-name {
+  color: black;
+  font-size: 30px;
+  max-width: 100%;
+  border-bottom: 1px solid black;
+}
+
+/* Footer */
+#sticky-footer {
+  flex-shrink: none;
+  background-color: #bed7f1 !important;
+}
+
+.footer-text {
+  color: black;
+}
